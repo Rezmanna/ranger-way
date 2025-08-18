@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ranger Way</title>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-100">
+	<header class="px-6 py-4 border-b border-white/10 backdrop-blur supports-[backdrop-filter]:bg-white/5">
+		<div class="mx-auto max-w-5xl flex items-center justify-between">
+			<h1 class="text-xl font-semibold tracking-tight">Ranger Way</h1>
+			<nav class="space-x-6 text-sm">
+				<a href="#" class="text-slate-300 hover:text-white">Home</a>
+				<a href="#" class="text-slate-300 hover:text-white">About</a>
+				<a href="#" class="text-slate-300 hover:text-white">Contact</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="mx-auto max-w-5xl px-6 py-16">
+		<section class="text-center">
+			<h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Tailwind is working</h2>
+			<p class="mt-4 text-slate-300">Edit this page in <code class="font-mono">public/index.html</code> and styles in <code class="font-mono">src/styles.css</code>.</p>
+			<div class="mt-8 flex items-center justify-center gap-4">
+				<a href="#" class="inline-flex items-center rounded-lg bg-indigo-500 px-5 py-2.5 font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-300">Get Started</a>
+				<a href="#" class="inline-flex items-center rounded-lg bg-white/10 px-5 py-2.5 font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/30">Learn More</a>
+			</div>
+		</section>
+		<section class="mt-16 grid gap-6 sm:grid-cols-2">
+			<div class="rounded-xl border border-white/10 bg-white/5 p-6">
+				<h3 class="text-lg font-semibold">Fast Setup</h3>
+				<p class="mt-2 text-sm text-slate-300">This page is styled purely with Tailwind classes.</p>
+			</div>
+			<div class="rounded-xl border border-white/10 bg-white/5 p-6">
+				<h3 class="text-lg font-semibold">Ready to Build</h3>
+				<p class="mt-2 text-sm text-slate-300">Start adding components and pages as needed.</p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="mx-auto max-w-5xl px-6 py-8 text-center text-sm text-slate-400">
+		&copy; <span id="year"></span> Ranger Way
+	</footer>
+
+	<script>
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
+
+
