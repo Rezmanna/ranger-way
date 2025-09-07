@@ -116,10 +116,6 @@
 			</div>
 		</div>
 	</section>
-
-	<!-- Download Brochure -->
-
-
 	<!-- About section -->
 	<section id="about" class="flex flex-col mx-auto max-w-6xl px-6 py-16 sm:py-20 scroll-mt-16 gap-8">
 		<div class="grid items-center gap-10 sm:grid-cols-2">
@@ -128,8 +124,25 @@
 				<p class="mt-3">Discover a rare opportunity to secure your place in Mount Barker’s newest and most exclusive land release, just moments from the vibrant town centre.</p>
 				<p class="mt-3">Offering the perfect balance of convenience, style, and tranquillity, this premium address is designed for those who seek the very best in lifestyle and amenity.</p>
 				<p class="mt-3">Limited in number and unmatched in location, this is prestige living at its finest in the Adelaide Hills.</p>
-				<div class="mt-6">
-					<a href="#register" class="btn btn-secondary btn-sm">Register Your Interest</a>
+				<div class="mt-8 grid grid-cols-2 gap-4">
+					<div class="flex text-center p-4 rounded-xl bg-white border-2 border-dark-clay shadow-sm">
+						<div class="flex self-end mr-2 text-3xl font-bold text-dark-clay counter" data-target="13">0</div>
+						<div class="flex self-end text-sm text-slate-600 mt-1">Exclusive Blocks</div>
+					</div>
+					<div class="flex text-center p-4 rounded-xl bg-white border-2 border-dark-clay shadow-sm">
+						<div class="relative w-16 h-16 mx-auto">
+							<svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+								<!-- Background circle -->
+								<path class="stroke-slate-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+								<!-- Progress circle -->
+								<path class="stroke-dark-clay transition-all duration-2000 ease-out" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="100, 100" id="progress-circle"/>
+							</svg>
+							<div class="absolute inset-0 flex items-center justify-center">
+								<span class="text-lg font-bold text-dark-clay counter" data-target="5">0</span>
+							</div>
+						</div>
+						<div class="flex self-end text-sm text-slate-600">Minutes Walk to Town</div>
+					</div>
 				</div>
 			</div>
 			<div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
@@ -402,6 +415,75 @@
 	});
 	// Year
 	document.getElementById('year').textContent = new Date().getFullYear();
+
+	// Counter animation
+	function animateCounter(element, target, duration = 2000) {
+		let start = 0;
+		const increment = target / (duration / 16);
+		
+		function updateCounter() {
+			start += increment;
+			if (start < target) {
+				element.textContent = Math.floor(start);
+				requestAnimationFrame(updateCounter);
+			} else {
+				element.textContent = target;
+			}
+		}
+		updateCounter();
+	}
+
+	// Dial animation for progress circle
+	function animateDial(target, duration = 2000) {
+		const progressCircle = document.getElementById('progress-circle');
+		if (!progressCircle) return;
+		
+		const circumference = 100; // Full circle
+		const targetProgress = (target / 10) * circumference; // Assuming max of 10 for 100% fill
+		
+		let start = 0;
+		const increment = targetProgress / (duration / 16);
+		
+		function updateDial() {
+			start += increment;
+			if (start < targetProgress) {
+				const currentProgress = Math.floor(start);
+				progressCircle.style.strokeDasharray = `${currentProgress}, ${circumference}`;
+				requestAnimationFrame(updateDial);
+			} else {
+				progressCircle.style.strokeDasharray = `${targetProgress}, ${circumference}`;
+			}
+		}
+		updateDial();
+	}
+
+	// Intersection Observer for counter animation
+	const observerOptions = {
+		threshold: 0.5,
+		rootMargin: '0px 0px -100px 0px'
+	};
+
+	const counterObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const counter = entry.target;
+				const target = parseInt(counter.getAttribute('data-target'));
+				animateCounter(counter, target);
+				
+				// Also animate the dial if this is the dial counter
+				if (counter.closest('.text-center').querySelector('#progress-circle')) {
+					animateDial(target);
+				}
+				
+				counterObserver.unobserve(counter);
+			}
+		});
+	}, observerOptions);
+
+	// Observe all counters
+	document.querySelectorAll('.counter').forEach(counter => {
+		counterObserver.observe(counter);
+	});
 </script>
 </body>
 </html>
