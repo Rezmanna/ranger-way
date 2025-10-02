@@ -1,426 +1,454 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Ranger Estate</title>
-	<meta name="description" content="Ranger Estate" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranger Estate</title>
+  <meta name="description" content="Ranger Estate"/>
 
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						'clay':  '#ba5a3f',
-						'dark-clay': '#9c3b1d',//logo
-						'lilac': '#798993',
-						'dark-lilac': '#60718e',//logo
-						'gum-leaf': '#789a72',
-						'butter': '#f9e3b2',
-						'bluestone': '#445d7b',
-						'deep-maroon': '#762415',
-						'blue': '#74cce5',
-						'blue-lake': '#009cd8',
-					}
-				}
-			}
-		}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      'clay': '#ba5a3f',
+                      'dark-clay': '#9c3b1d',//logo
+                      'lilac': '#798993',
+                      'dark-lilac': '#60718e',//logo
+                      'gum-leaf': '#789a72',
+                      'butter': '#f9e3b2',
+                      'bluestone': '#445d7b',
+                      'deep-maroon': '#762415',
+                      'blue': '#74cce5',
+                      'blue-lake': '#009cd8',
+                  }
+              }
+          }
+      }
 
-	</script>
-	<style type="text/tailwindcss">
-		@layer components {
-			/* Base button styling */
-			.btn {
-				@apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 font-medium shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
-			}
+  </script>
+  <style type="text/tailwindcss">
+      @layer components {
+          /* Base button styling */
+          .btn {
+              @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 font-medium shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+          }
 
-			/* Primary button - dark clay */
-			.btn-primary {
-				@apply bg-dark-clay text-white hover:bg-clay focus:ring-dark-clay/50;
-			}
+          /* Primary button - dark clay */
+          .btn-primary {
+              @apply bg-dark-clay text-white hover:bg-clay focus:ring-dark-clay/50;
+          }
 
-			/* Secondary button - outlined dark clay */
-			.btn-secondary {
-				@apply bg-transparent text-dark-clay border-2 border-dark-clay hover:bg-dark-clay hover:text-white focus:ring-dark-clay/50;
-			}
+          /* Secondary button - outlined dark clay */
+          .btn-secondary {
+              @apply bg-transparent text-dark-clay border-2 border-dark-clay hover:bg-dark-clay hover:text-white focus:ring-dark-clay/50;
+          }
 
-			/* Tertiary button - subtle dark clay */
-			.btn-tertiary {
-				@apply bg-dark-clay/10 text-dark-clay hover:bg-dark-clay/20 focus:ring-dark-clay/30;
-			}
+          /* Tertiary button - subtle dark clay */
+          .btn-tertiary {
+              @apply bg-dark-clay/10 text-dark-clay hover:bg-dark-clay/20 focus:ring-dark-clay/30;
+          }
 
-			/* Small button variant */
-			.btn-sm {
-				@apply px-3 py-1.5 text-sm;
-			}
+          /* Small button variant */
+          .btn-sm {
+              @apply px-3 py-1.5 text-sm;
+          }
 
-			/* Large button variant */
-			.btn-lg {
-				@apply px-6 py-3 text-base;
-			}
+          /* Large button variant */
+          .btn-lg {
+              @apply px-6 py-3 text-base;
+          }
 
-			/* Light button for dark backgrounds */
-			.btn-light {
-				@apply bg-white text-dark-clay hover:bg-gray-100 focus:ring-white/50;
-			}
-		}
-	</style>
+          /* Light button for dark backgrounds */
+          .btn-light {
+              @apply bg-white text-dark-clay hover:bg-gray-100 focus:ring-white/50;
+          }
+      }
+  </style>
 </head>
 <body class="min-h-screen bg-white text-slate-800">
 <!-- Header -->
 <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-	<div class="mx-auto max-w-6xl px-6">
-		<div class="flex h-20 items-center justify-between">
-			<a href="#home" class="flex items-center gap-2">
-				<img src="ranger_estate_no_background.png" alt="logo" class="w-60"/>
-			</a>
-			<nav class="hidden items-center gap-8 text-sm text-slate-600 md:flex">
-				<a href="#home" class="hover:text-slate-900">Home</a>
-				<a href="#about" class="hover:text-slate-900">About</a>
-				<a href="#location" class="hover:text-slate-900">Location</a>
-				<a href="#documents" class="hover:text-slate-900">Documents</a>
-				<a href="#register" class="hover:text-slate-900">Register Interest</a>
-			</nav>
-			<div class="hidden md:block">
-				<a href="#register" class="btn btn-primary btn-sm">Register Your Interest</a>
-			</div>
-			<button id="menuBtn" class="grid h-9 w-9 place-items-center rounded md:hidden hover:bg-brown/10" aria-label="Open menu" aria-expanded="false">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path fill-rule="evenodd" d="M3.75 5.25a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 6.75a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm.75 6a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z" clip-rule="evenodd"/></svg>
-			</button>
-		</div>
-		<div id="mobileNav" class="hidden border-t border-slate-200 py-3 md:hidden">
-			<nav class="grid gap-2 text-sm text-slate-700">
-				<a href="#home" class="hover:text-slate-900">Home</a>
-				<a href="#about" class="hover:text-slate-900">About</a>
-				<a href="#location" class="hover:text-slate-900">Location</a>
-				<a href="#documents" class="hover:text-slate-900">Documents</a>
-				<a href="#register" class="hover:text-slate-900">Register Interest</a>
-			</nav>
-		</div>
-	</div>
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="flex h-20 items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <img src="ranger_estate_no_background.png" alt="logo" class="w-60"/>
+      </a>
+      <nav class="hidden items-center gap-8 text-sm text-slate-600 md:flex">
+        <a href="#home" class="hover:text-slate-900">Home</a>
+        <a href="#about" class="hover:text-slate-900">About</a>
+        <a href="#location" class="hover:text-slate-900">Location</a>
+        <a href="#documents" class="hover:text-slate-900">Documents</a>
+        <a href="#register" class="hover:text-slate-900">Register Interest</a>
+      </nav>
+      <div class="hidden md:block">
+        <a href="#register" class="btn btn-primary btn-sm">Register Your Interest</a>
+      </div>
+      <button id="menuBtn" class="grid h-9 w-9 place-items-center rounded md:hidden hover:bg-brown/10"
+              aria-label="Open menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+          <path fill-rule="evenodd"
+                d="M3.75 5.25a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm0 6.75a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm.75 6a.75.75 0 0 0 0 1.5h15a.75.75 0 0 0 0-1.5h-15Z"
+                clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobileNav" class="hidden border-t border-slate-200 py-3 md:hidden">
+      <nav class="grid gap-2 text-sm text-slate-700">
+        <a href="#home" class="hover:text-slate-900">Home</a>
+        <a href="#about" class="hover:text-slate-900">About</a>
+        <a href="#location" class="hover:text-slate-900">Location</a>
+        <a href="#documents" class="hover:text-slate-900">Documents</a>
+        <a href="#register" class="hover:text-slate-900">Register Interest</a>
+      </nav>
+    </div>
+  </div>
 </header>
 
 <main id="home">
-	<!-- Hero -->
-	<section class="relative scroll-mt-16 min-h-[80vh]">
-		<div class="absolute inset-0 -z-10 bg-[url('images/skyline_one.jpeg?q=80&w=1600&auto=format&fit=crop')] bg-cover"></div>
-		<div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-black/30 to-black/30"></div>
-		<div class="mx-auto max-w-6xl px-6 pt-24 pb-24 sm:pt-28 sm:pb-28">
-			<p class="text-indigo-200 text-sm font-medium uppercase tracking-widest">Exclusive New Land Release</p>
-			<h1 class="mt-3 text-4xl tracking-tight text-white sm:text-5xl">Prestige Living</h1>
-			<p class="mt-4 max-w-2xl text-white/90">Discover Ranger Estate, a premium estate in the Adelaide Hills, where everyday life meets breathtaking scenery and a welcoming community.</p>
-			<div class="mt-8 flex flex-wrap items-center gap-3">
-				<a href="#register" class="btn btn-primary">Register Your Interest</a>
-				<a href="#documents" class="btn btn-light">Download Brochure</a>
-			</div>
-		</div>
-	</section>
-	<!-- About section -->
-	<section id="about" class="flex flex-col mx-auto max-w-6xl px-6 py-16 sm:py-20 scroll-mt-16 gap-8">
-		<div class="grid items-center gap-10 sm:grid-cols-2">
-			<div>
-				<h2 class="text-2xl font-semibold tracking-tight">An Exclusive New Land Release in the heart of Mount Barker.</h2>
-				<p class="mt-3">Discover a rare opportunity to secure your place in Mount Barker’s newest and most exclusive land release, just moments from the vibrant town centre.</p>
-				<p class="mt-3">Offering the perfect balance of convenience, style, and tranquillity, this premium address is designed for those who seek the very best in lifestyle and amenity.</p>
-				<p class="mt-3">Limited in number and unmatched in location, this is prestige living at its finest in the Adelaide Hills.</p>
-				<div class="mt-8 grid grid-cols-2 gap-4">
-					<div class="flex text-center p-4 rounded-xl bg-white border-2 border-dark-clay shadow-sm">
-						<div class="flex self-end mr-2 text-3xl font-bold text-dark-clay counter" data-target="13">0</div>
-						<div class="flex self-end text-sm text-slate-600 mt-1">Exclusive Blocks</div>
-					</div>
-					<div class="flex text-center p-4 rounded-xl bg-white border-2 border-dark-clay shadow-sm">
-						<div class="relative w-16 h-16 mx-auto">
-							<svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
-								<!-- Background circle -->
-								<path class="stroke-slate-200" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-								<!-- Progress circle -->
-								<path class="stroke-dark-clay transition-all duration-2000 ease-out" stroke-width="3" fill="none" stroke-linecap="round" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="100, 100" id="progress-circle"/>
-							</svg>
-							<div class="absolute inset-0 flex items-center justify-center">
-								<span class="text-lg font-bold text-dark-clay counter" data-target="5">0</span>
-							</div>
-						</div>
-						<div class="flex self-end text-sm text-slate-600">Minutes Walk to Town</div>
-					</div>
-				</div>
-			</div>
-			<div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-				<img src="images/steam_ranger_one.jpeg" alt="Adelaide Hills scenery" class="h-full w-full object-cover" />
-			</div>
-		</div>
-		<div class="grid items-center gap-10 sm:grid-cols-2">
-			<div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-				<img src="images/coffee.jpg" alt="Adelaide Hills scenery" class="h-full w-full object-cover" />
-			</div>
-			<div>
-				<h2 class="text-2xl font-semibold tracking-tight">Morning coffee on the balcony, weekends in the Hills, and everything you need just steps away</h2>
-				<p class="mt-3">Wake to soft Adelaide Hills light and the scent of fresh coffee drifting from the town’s cafés.</p>
-				<p class="mt-3">Explore the farmers’ markets, wineries, breweries, distilleries and eateries – all on your doorstep.</p>
-				<p class="mt-3">If it’s fitness and activity you crave you can take in a round of golf, stretch your legs walking the local trails, or hit one of the many gyms in town.</p>
-				<p class="mt-3">Here, prestige living means more than an address; it’s the freedom to create a life where style, comfort, and convenience come together effortlessly.</p>
-				<div class="mt-6">
-					<a href="#register" class="btn btn-secondary btn-sm">Register Your Interest</a>
-				</div>
-			</div>
-		</div>
-		<div class="grid items-center gap-10 sm:grid-cols-2">
-			<div>
-				<h2 class="text-2xl font-semibold tracking-tight">Limited Land. Unlimited Lifestyle.</h2>
-				<p class="mt-3">Perfectly positioned, this exclusive release offers the ultimate blend of convenience and serenity.</p>
-				<p class="mt-3">Quality schools, sporting facilities, and medical services are all within easy reach, while Adelaide’s CBD is an effortless drive away.</p>
-				<p class="mt-3">Surrounded by the peace and beauty of the Adelaide Hills this is more than just a location.</p>
-				<p class="mt-3">It's a lifestyle where everything you need is close at hand, and everything you love is right outside your door.</p>
-				<div class="mt-6">
-					<a href="#register" class="btn btn-secondary btn-sm">Register Your Interest</a>
-				</div>
-			</div>
-			<div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-				<img src="images/wetlands_two.jpeg" alt="Adelaide Hills scenery" class="h-full w-full object-cover" />
-			</div>
-		</div>
-	</section>
+  <!-- Hero -->
+  <section class="relative scroll-mt-16 min-h-[80vh]">
+    <div class="absolute inset-0 -z-10 bg-[url('images/skyline_one.jpeg?q=80&w=1600&auto=format&fit=crop')] bg-cover"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-black/30 to-black/30"></div>
+    <div class="mx-auto max-w-6xl px-6 pt-24 pb-24 sm:pt-28 sm:pb-28">
+      <p class="text-indigo-200 text-sm font-medium uppercase tracking-widest">Exclusive New Land Release</p>
+      <h1 class="mt-3 text-4xl tracking-tight text-white sm:text-5xl">Prestige Living</h1>
+      <p class="mt-4 max-w-2xl text-white/90">Discover Ranger Estate, a premium estate in the Adelaide Hills, where
+        everyday life meets breathtaking scenery and a welcoming community.</p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#register" class="btn btn-primary">Register Your Interest</a>
+        <a href="#documents" class="btn btn-light">Download Brochure</a>
+      </div>
+    </div>
+  </section>
+  <!-- About section -->
+  <section id="about" class="flex flex-col mx-auto max-w-6xl px-6 py-16 sm:py-20 scroll-mt-16 gap-8">
+    <div class="grid items-center gap-10 sm:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">An Exclusive New Land Release in the heart of Mount
+          Barker.</h2>
+        <p class="mt-3">Discover a rare opportunity to secure your place in Mount Barker’s newest and most exclusive
+          land release, just moments from the vibrant town centre.</p>
+        <p class="mt-3">Offering the perfect balance of convenience, style, and tranquillity, this premium address is
+          designed for those who seek the very best in lifestyle and amenity.</p>
+        <p class="mt-3">Limited in number and unmatched in location, this is prestige living at its finest in the
+          Adelaide Hills.</p>
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <div class="flex text-center p-4 rounded-xl bg-white border-2 border-dark-clay shadow-sm">
+            <div class="flex self-end mr-2 text-3xl font-bold text-dark-clay counter" data-target="13">0</div>
+            <div class="flex self-end text-sm text-slate-600 mt-1">Exclusive Blocks</div>
+          </div>
+          <div class="flex text-center p-4 rounded-xl bg-white border-2 border-dark-clay shadow-sm">
+            <div class="relative w-16 h-16 mx-auto">
+              <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+                <!-- Background circle -->
+                <path class="stroke-slate-200" stroke-width="3" fill="none"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <!-- Progress circle -->
+                <path class="stroke-dark-clay transition-all duration-2000 ease-out" stroke-width="3" fill="none"
+                      stroke-linecap="round"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                      stroke-dasharray="100, 100" id="progress-circle"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-lg font-bold text-dark-clay counter" data-target="5">0</span>
+              </div>
+            </div>
+            <div class="flex self-end text-sm text-slate-600">Minutes Walk to Town</div>
+          </div>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+        <img src="images/steam_ranger_one.jpeg" alt="Adelaide Hills scenery" class="h-full w-full object-cover"/>
+      </div>
+    </div>
+    <div class="grid items-center gap-10 sm:grid-cols-2">
+      <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+        <img src="images/coffee.jpg" alt="Adelaide Hills scenery" class="h-full w-full object-cover"/>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">Morning coffee on the balcony, weekends in the Hills, and
+          everything you need just steps away</h2>
+        <p class="mt-3">Wake to soft Adelaide Hills light and the scent of fresh coffee drifting from the town’s
+          cafés.</p>
+        <p class="mt-3">Explore the farmers’ markets, wineries, breweries, distilleries and eateries – all on your
+          doorstep.</p>
+        <p class="mt-3">If it’s fitness and activity you crave you can take in a round of golf, stretch your legs
+          walking the local trails, or hit one of the many gyms in town.</p>
+        <p class="mt-3">Here, prestige living means more than an address; it’s the freedom to create a life where style,
+          comfort, and convenience come together effortlessly.</p>
+        <div class="mt-6">
+          <a href="#register" class="btn btn-secondary btn-sm">Register Your Interest</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid items-center gap-10 sm:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">Limited Land. Unlimited Lifestyle.</h2>
+        <p class="mt-3">Perfectly positioned, this exclusive release offers the ultimate blend of convenience and
+          serenity.</p>
+        <p class="mt-3">Quality schools, sporting facilities, and medical services are all within easy reach, while
+          Adelaide’s CBD is an effortless drive away.</p>
+        <p class="mt-3">Surrounded by the peace and beauty of the Adelaide Hills this is more than just a location.</p>
+        <p class="mt-3">It's a lifestyle where everything you need is close at hand, and everything you love is right
+          outside your door.</p>
+        <div class="mt-6">
+          <a href="#register" class="btn btn-secondary btn-sm">Register Your Interest</a>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+        <img src="images/wetlands_two.jpeg" alt="Adelaide Hills scenery" class="h-full w-full object-cover"/>
+      </div>
+    </div>
+  </section>
 
-	<!-- Location -->
-	<section id="location" class="mx-auto max-w-6xl px-6 py-16 scroll-mt-16">
-		<h3 class="text-xl font-semibold">Location</h3>
-		<p class="mt-2 max-w-2xl">59 Hartmann Road, Mount Barker, SA, 5251</p>
-		<div class="flex justify-center mt-4">
-			<img src="map.jpg" alt="Location map placeholder" class="w-full h-full rounded-xl border border-slate-200 bg-slate-100" />
-		</div>
-	</section>
+  <!-- Location -->
+  <section id="location" class="mx-auto max-w-6xl px-6 py-16 scroll-mt-16">
+    <h3 class="text-xl font-semibold">Location</h3>
+    <p class="mt-2 max-w-2xl">59 Hartmann Road, Mount Barker, SA, 5251</p>
+    <div class="flex justify-center mt-4">
+      <img src="map.jpg" alt="Location map placeholder"
+           class="w-full h-full rounded-xl border border-slate-200 bg-slate-100"/>
+    </div>
+  </section>
 
-	<section id="procedures" class="mx-auto max-w-6xl px-6 py-16 scroll-mt-16">
-		<div class="text-center mb-8">
-			<h3 class="text-2xl font-semibold">Sales Process</h3>
-			<p class="mt-3 max-w-3xl mx-auto">To ensure fairness and transparency for all interested parties, Ranger Estate follows a structured sales procedure. Below are the key terms and conditions that will guide your purchase process.</p>
-		</div>
-		
-		<div class="grid gap-6 lg:grid-cols-2">
-			<!-- Letter of Offer Process -->
-			<div class="rounded-xl border border-slate-200 bg-white p-6">
-				<h4 class="text-lg font-semibold text-dark-clay mb-4">Letter of Offer Process</h4>
-				<ul class="space-y-3 text-sm">
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>Each allotment will be offered for sale by letter of offer</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>All interested parties must provide the selling consultant a copy of the letter on or before the close of business on (date to be agreed upon)</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>A "LETTER OF OFFER TO PURCHASE" will be executed by purchaser to confirm commitment to contract on a particular allotment</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>No land holds will be taken during the day of release</span>
-					</li>
-				</ul>
-			</div>
+  <section id="procedures" class="mx-auto max-w-6xl px-6 py-16 scroll-mt-16">
+    <div class="text-center mb-8">
+      <h3 class="text-2xl font-semibold">Sales Process</h3>
+      <p class="mt-3 max-w-3xl mx-auto">To ensure fairness and transparency for all interested parties, Ranger Estate
+        follows a structured sales procedure. Below are the key terms and conditions that will guide your purchase
+        process.</p>
+    </div>
 
-			<!-- Offer Priority & Conditions -->
-			<div class="rounded-xl border border-slate-200 bg-white p-6">
-				<h4 class="text-lg font-semibold text-dark-clay mb-4">Offer Priority & Conditions</h4>
-				<ul class="space-y-3 text-sm">
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>Unconditional offers of purchase will receive priority over those subject to conditions</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>House and Land Finance will not be accepted or considered</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>Land only conditions will receive consideration from the vendor</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>Offers will be presented to the vendor and all parties advised of their success or otherwise as soon as possible</span>
-					</li>
-				</ul>
-			</div>
+    <div class="grid gap-6 lg:grid-cols-2">
+      <!-- Letter of Offer Process -->
+      <div class="rounded-xl border border-slate-200 bg-white p-6">
+        <h4 class="text-lg font-semibold text-dark-clay mb-4">Letter of Offer Process</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>Each allotment will be offered for sale by “LETTER OF OFFER”. This will ensure the vendor can deal expediently with all interested parties.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>This “LETTER OF OFFER” will confirm that the purchaser wishes to commit to contract on a particular allotment.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>It is important therefore that all interested parties provide the selling consultant a copy of the “LETTER OF OFFER” form as soon as possible.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>No land holds will be taken during the day of release</span>
+          </li>
+        </ul>
+      </div>
 
-			<!-- Financial Terms -->
-			<div class="rounded-xl border border-slate-200 bg-white p-6">
-				<h4 class="text-lg font-semibold text-dark-clay mb-4">Financial Terms</h4>
-				<ul class="space-y-3 text-sm">
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>A minimum deposit of 10% unless otherwise agreed by the vendor will be required at the expiration of the cooling off period</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>Settlement of land to occur ? days from deposit of plan and issue of titles</span>
-					</li>
-				</ul>
-			</div>
+      <!-- Offer Priority & Conditions -->
+      <div class="rounded-xl border border-slate-200 bg-white p-6">
+        <h4 class="text-lg font-semibold text-dark-clay mb-4">Offer Priority & Conditions</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>Unconditional offers of purchase will receive priority over those subject to conditions. For example - your offer is subject to financial approval.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>House and Land Finance will not be accepted or considered. Land only conditions will receive consideration from the vendor.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>Once all prospective purchases have had the opportunity to forward their “LETTER OF OFFER” for their nominated allotment(s), offers will be presented to the vendor and our consultant will advise all parties of their success or otherwise as soon as possible.</span>
+          </li>
+        </ul>
+      </div>
 
-			<!-- Important Notes -->
-			<div class="rounded-xl border border-slate-200 bg-white p-6">
-				<h4 class="text-lg font-semibold text-dark-clay mb-4">Important Notes</h4>
-				<ul class="space-y-3 text-sm">
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>This summary has been provided in good faith to ensure all interested parties are clear on the procedure and terms of offering</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-dark-clay">•</span>
-						<span>If you are uncertain on any issue it is important to talk to the Consultant</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
+      <!-- Financial Terms -->
+      <div class="rounded-xl border border-slate-200 bg-white p-6">
+        <h4 class="text-lg font-semibold text-dark-clay mb-4">Financial Terms</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>A minimum deposit of 10% unless otherwise agreed by the vendor will be required at the expiration of the cooling off period</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>Settlement of land to occur 45 days from deposit of plan and issue of titles.</span>
+          </li>
+        </ul>
+      </div>
 
-	<!--	Guidelines -->
-	<section id="documents" class="mx-auto max-w-6xl px-6 py-16 scroll-mt-16">
-		<div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-indigo-50 to-white p-8">
-			<div class="grid items-center gap-8 sm:grid-cols-2">
-				<div>
-					<h3 class="text-xl font-semibold">Documents</h3>
-					<p class="mt-2">Create a home that reflects your style while enhancing the character of Ranger Estate. Download the guidelines to get started.</p>
-					<div class="mt-5 flex gap-3">
-<!--						<a href="#" class="btn btn-primary">Download Guidelines</a>-->
-						<a href="/files/brochure.pdf" download="Ranger-Estate-Brochure.pdf" class="btn btn-primary">Download Brochure</a>
-					</div>
-				</div>
-				<div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-					<img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1600&auto=format&fit=crop" alt="Modern home exterior" class="h-full w-full object-cover" />
-				</div>
-			</div>
-		</div>
-	</section>
+      <!-- Important Notes -->
+      <div class="rounded-xl border border-slate-200 bg-white p-6">
+        <h4 class="text-lg font-semibold text-dark-clay mb-4">Important Notes</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>This summary has been provided in good faith to ensure all interested parties are clear on the procedure and terms of offering</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-dark-clay">•</span>
+            <span>If you are uncertain on any issue it is important to talk to the Consultant</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<!-- Urgent Call to Action -->
+  <!--	Guidelines -->
+  <section id="documents" class="mx-auto max-w-6xl px-6 py-16 scroll-mt-16">
+    <div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-indigo-50 to-white p-8">
+      <div class="grid items-center gap-8 sm:grid-cols-2">
+        <div>
+          <h3 class="text-xl font-semibold">Documents</h3>
+          <p class="mt-2">Create a home that reflects your style while enhancing the character of Ranger Estate.
+            Download the guidelines to get started.</p>
+          <div class="mt-5 flex gap-3">
+            <a href="/files/brochure.pdf" download="Ranger-Estate-Brochure.pdf" class="btn btn-primary">Download
+              Brochure</a>
+          </div>
+        </div>
+        <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+          <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1600&auto=format&fit=crop"
+               alt="Modern home exterior" class="h-full w-full object-cover"/>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<!-- Register / Contact -->
-	<section id="register" class="relative scroll-mt-16">
-		<div class="absolute inset-0 -z-10 bg-gradient-to-br from-dark-clay to-clay"></div>
-		<div class="mx-auto max-w-6xl px-6 py-16 text-white">
-			<div class="grid items-center gap-8 sm:grid-cols-2">
-				<div>
-					<h3 class="text-2xl font-semibold">Secure your place before it's gone.</h3>
-					<p class="mt-4 text-white/90">Opportunities like this are rare — and they don't last long. Lock in your ideal allotment, so you can start planning your prestige lifestyle without delay.</p>
-					<div class="mt-8">
-						<div class="rounded-xl border border-white/20 bg-white/10 p-6">
-							<div class="text-center">
-								<h4 class="text-lg font-semibold">Russell Searby</h4>
-								<p class="text-sm text-white/80 uppercase tracking-wide">CONSULTANT</p>
-								<div class="mt-4 space-y-2 text-sm">
-									<p><a href="tel:+61413731700" class="hover:text-white/80">0413 731 700</a></p>
-									<p><a href="mailto:info@rangerestate.com.au" class="hover:text-white/80">info@rangerestate.com.au</a></p>
-									<p>PO Box 1293<br>Mt Barker SA 5152</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-col flex-1 ">
-					<div class="rounded-xl border border-white/20 bg-white/10 p-6">
-						<h3 class="text-xl font-semibold">Register Your Interest</h3>
-						<p class="mt-2">Leave your details and our team will be in touch with upcoming releases and updates.</p>
-						<form class="mt-6 grid gap-4">
-							<input type="text" placeholder="Full name" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none" />
-							<input type="email" placeholder="Email" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none" />
-							<input type="tel" placeholder="Phone" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none" />
-							<button type="button" class="btn btn-primary">Submit</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <!-- Register / Contact -->
+  <section id="register" class="relative scroll-mt-16">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-dark-clay to-clay"></div>
+    <div class="mx-auto max-w-6xl px-6 py-16 text-white">
+      <div class="grid items-center gap-8 sm:grid-cols-2">
+        <div>
+          <h3 class="text-2xl font-semibold">Secure your place before it's gone.</h3>
+          <p class="mt-4 text-white/90">Opportunities like this are rare — and they don't last long. Lock in your ideal
+            allotment, so you can start planning your prestige lifestyle without delay.</p>
+          <div class="mt-8">
+            <div class="rounded-xl border border-white/20 bg-white/10 p-6">
+              <div class="text-center">
+                <h4 class="text-lg font-semibold">Russell Searby</h4>
+                <p class="text-sm text-white/80 uppercase tracking-wide">CONSULTANT</p>
+                <div class="mt-4 space-y-2 text-sm">
+                  <p><a href="tel:+61413731700" class="hover:text-white/80">0413 731 700</a></p>
+                  <p><a href="mailto:info@rangerestate.com.au" class="hover:text-white/80">info@rangerestate.com.au</a>
+                  </p>
+                  <p>PO Box 1293<br>Mt Barker SA 5152</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col flex-1 ">
+          <div class="rounded-xl border border-white/20 bg-white/10 p-6">
+            <h3 class="text-xl font-semibold">Register Your Interest</h3>
+            <p class="mt-2">Leave your details and our team will be in touch with upcoming releases and updates.</p>
+            <form class="mt-6 grid gap-4">
+              <input type="text" placeholder="Full name"
+                     class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"/>
+              <input type="email" placeholder="Email"
+                     class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"/>
+              <input type="tel" placeholder="Phone"
+                     class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"/>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- Footer -->
 <footer class="border-t border-slate-200">
-	<div class="mx-auto max-w-6xl px-6 py-8 text-center text-sm text-slate-500">
-		&copy; <span id="year"></span> Ranger Estate
-	</div>
+  <div class="mx-auto max-w-6xl px-6 py-8 text-center text-sm text-slate-500">
+    &copy; <span id="year"></span> Ranger Estate
+  </div>
 </footer>
 
 <script>
-	// Mobile menu
-	const menuBtn = document.getElementById('menuBtn');
-	const mobileNav = document.getElementById('mobileNav');
-	menuBtn?.addEventListener('click', () => {
-		const isOpen = mobileNav.classList.toggle('hidden') === false;
-		menuBtn.setAttribute('aria-expanded', String(isOpen));
-	});
-	// Year
-	document.getElementById('year').textContent = new Date().getFullYear();
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn?.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('hidden') === false;
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-	// Counter animation
-	function animateCounter(element, target, duration = 2000) {
-		let start = 0;
-		const increment = target / (duration / 16);
-		
-		function updateCounter() {
-			start += increment;
-			if (start < target) {
-				element.textContent = Math.floor(start);
-				requestAnimationFrame(updateCounter);
-			} else {
-				element.textContent = target;
-			}
-		}
-		updateCounter();
-	}
+    // Counter animation
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
 
-	// Dial animation for progress circle
-	function animateDial(target, duration = 2000) {
-		const progressCircle = document.getElementById('progress-circle');
-		if (!progressCircle) return;
-		
-		const circumference = 100; // Full circle
-		const targetProgress = (target / 10) * circumference; // Assuming max of 10 for 100% fill
-		
-		let start = 0;
-		const increment = targetProgress / (duration / 16);
-		
-		function updateDial() {
-			start += increment;
-			if (start < targetProgress) {
-				const currentProgress = Math.floor(start);
-				progressCircle.style.strokeDasharray = `${currentProgress}, ${circumference}`;
-				requestAnimationFrame(updateDial);
-			} else {
-				progressCircle.style.strokeDasharray = `${targetProgress}, ${circumference}`;
-			}
-		}
-		updateDial();
-	}
+        function updateCounter() {
+            start += increment;
+            if (start < target) {
+                element.textContent = Math.floor(start);
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = target;
+            }
+        }
 
-	// Intersection Observer for counter animation
-	const observerOptions = {
-		threshold: 0.5,
-		rootMargin: '0px 0px -100px 0px'
-	};
+        updateCounter();
+    }
 
-	const counterObserver = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				const counter = entry.target;
-				const target = parseInt(counter.getAttribute('data-target'));
-				animateCounter(counter, target);
-				
-				// Also animate the dial if this is the dial counter
-				if (counter.closest('.text-center').querySelector('#progress-circle')) {
-					animateDial(target);
-				}
-				
-				counterObserver.unobserve(counter);
-			}
-		});
-	}, observerOptions);
+    // Dial animation for progress circle
+    function animateDial(target, duration = 2000) {
+        const progressCircle = document.getElementById('progress-circle');
+        if (!progressCircle) return;
 
-	// Observe all counters
-	document.querySelectorAll('.counter').forEach(counter => {
-		counterObserver.observe(counter);
-	});
+        const circumference = 100; // Full circle
+        const targetProgress = (target / 10) * circumference; // Assuming max of 10 for 100% fill
+
+        let start = 0;
+        const increment = targetProgress / (duration / 16);
+
+        function updateDial() {
+            start += increment;
+            if (start < targetProgress) {
+                const currentProgress = Math.floor(start);
+                progressCircle.style.strokeDasharray = `${currentProgress}, ${circumference}`;
+                requestAnimationFrame(updateDial);
+            } else {
+                progressCircle.style.strokeDasharray = `${targetProgress}, ${circumference}`;
+            }
+        }
+
+        updateDial();
+    }
+
+    // Intersection Observer for counter animation
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                animateCounter(counter, target);
+
+                // Also animate the dial if this is the dial counter
+                if (counter.closest('.text-center').querySelector('#progress-circle')) {
+                    animateDial(target);
+                }
+
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all counters
+    document.querySelectorAll('.counter').forEach(counter => {
+        counterObserver.observe(counter);
+    });
 </script>
 </body>
 </html>
