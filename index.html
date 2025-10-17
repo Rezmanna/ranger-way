@@ -361,14 +361,19 @@
           <div class="rounded-xl border border-white/20 bg-white/10 p-6">
             <h3 class="text-xl font-semibold">Register Your Interest</h3>
             <p class="mt-2">Leave your details and our team will be in touch with upcoming releases and updates.</p>
-            <form class="mt-6 grid gap-4">
-              <input type="text" placeholder="Full name"
+            <form name="interest" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="mt-6 grid gap-4">
+              <p class="hidden">
+                <label>
+                  <input name="bot-field" type="text" />
+                </label>
+              </p>
+              <input type="text" name="name" placeholder="Full name"
                      class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"/>
-              <input type="email" placeholder="Email"
+              <input type="email" name="email" placeholder="Email"
                      class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"/>
-              <input type="tel" placeholder="Phone"
+              <input type="tel" name="phone" placeholder="Phone"
                      class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none"/>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>
