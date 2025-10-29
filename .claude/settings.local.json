@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebFetch(domain:rangerestate.com.au)"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}
