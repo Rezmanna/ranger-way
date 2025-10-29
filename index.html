@@ -184,6 +184,23 @@
 
     gtag('config', 'AW-17664108583');
 </script>
+<!-- Event snippet for Submit lead form (1) conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17664108583/VcY8CIii87UbEKfQ8-ZB',
+            'event_callback': callback
+        });
+        return false;
+    }
+</script>
+
 <body class="min-h-screen bg-white text-slate-800">
 <!-- Toast Notification -->
 <div id="successToast" class="fixed top-6 right-6 z-[60] hidden">
@@ -612,6 +629,9 @@
                 body: new URLSearchParams(formData).toString()
             })
             .then(() => {
+                // Track conversion in Google Ads
+                gtag_report_conversion();
+
                 // Show toast notification
                 const toast = document.getElementById('successToast');
                 toast.classList.remove('hidden');
