@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+    --color-clay: #ba5a3f;
+    --color-dark-clay: #9c3b1d;
+    --color-lilac: #798993;
+    --color-dark-lilac: #60718e;
+    --color-gum-leaf: #789a72;
+    --color-butter: #f9e3b2;
+    --color-bluestone: #445d7b;
+    --color-deep-maroon: #762415;
+    --color-blue: #74cce5;
+    --color-blue-lake: #009cd8;
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 font-medium shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+
+    .btn-primary {
+        @apply bg-dark-clay text-white hover:bg-clay focus:ring-dark-clay/50;
+    }
+
+    .btn-secondary {
+        @apply bg-transparent text-dark-clay border-2 border-dark-clay hover:bg-dark-clay hover:text-white focus:ring-dark-clay/50;
+    }
+
+    .btn-tertiary {
+        @apply bg-dark-clay/10 text-dark-clay hover:bg-dark-clay/20 focus:ring-dark-clay/30;
+    }
+
+    .btn-sm {
+        @apply px-3 py-1.5 text-sm;
+    }
+
+    .btn-lg {
+        @apply px-6 py-3 text-base;
+    }
+
+    .btn-light {
+        @apply bg-white text-dark-clay hover:bg-gray-100 focus:ring-white/50;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.toast-enter {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.toast-exit {
+    animation: slideOut 0.3s ease-in forwards;
+}
