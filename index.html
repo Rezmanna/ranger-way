@@ -15,7 +15,7 @@
   <meta property="og:title" content="Ranger Estate - Exclusive Land Release Mount Barker"/>
   <meta property="og:description" content="Discover Ranger Estate - 13 exclusive land lots in Mount Barker, Adelaide Hills. Premium residential estate just 5 minutes walk to town centre."/>
   <meta property="og:url" content="https://rangerestate.com.au/"/>
-  <meta property="og:image" content="https://rangerestate.com.au/images/wren_crop.jpeg"/>
+  <meta property="og:image" content="https://rangerestate.com.au/images/wren_crop.webp"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta property="og:locale" content="en_AU"/>
@@ -33,7 +33,7 @@
         "creator": {"@id": "#creator"},
         "image": {
           "@type": "ImageObject",
-          "url": "https://rangerestate.com.au/images/wren_crop.jpeg"
+          "url": "https://rangerestate.com.au/images/wren_crop.webp"
         },
         "mainEntityOfPage": "https://rangerestate.com.au/",
         "name": "Ranger Estate - Exclusive Land Release Mount Barker | Land for Sale Mount Barker",
@@ -47,11 +47,11 @@
         "url": "https://rangerestate.com.au",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://rangerestate.com.au/ranger_estate_no_background.png"
+          "url": "https://rangerestate.com.au/images/ranger_estate_no_background.png"
         },
         "image": {
           "@type": "ImageObject",
-          "url": "https://rangerestate.com.au/images/wren_crop.jpeg"
+          "url": "https://rangerestate.com.au/images/wren_crop.webp"
         },
         "address": {
           "@type": "PostalAddress",
@@ -84,97 +84,7 @@
     ]
   }
   </script>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-      tailwind.config = {
-          theme: {
-              extend: {
-                  colors: {
-                      'clay': '#ba5a3f',
-                      'dark-clay': '#9c3b1d',//logo
-                      'lilac': '#798993',
-                      'dark-lilac': '#60718e',//logo
-                      'gum-leaf': '#789a72',
-                      'butter': '#f9e3b2',
-                      'bluestone': '#445d7b',
-                      'deep-maroon': '#762415',
-                      'blue': '#74cce5',
-                      'blue-lake': '#009cd8',
-                  }
-              }
-          }
-      }
-
-  </script>
-  <style type="text/tailwindcss">
-      @layer components {
-          /* Base button styling */
-          .btn {
-              @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 font-medium shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
-          }
-
-          /* Primary button - dark clay */
-          .btn-primary {
-              @apply bg-dark-clay text-white hover:bg-clay focus:ring-dark-clay/50;
-          }
-
-          /* Secondary button - outlined dark clay */
-          .btn-secondary {
-              @apply bg-transparent text-dark-clay border-2 border-dark-clay hover:bg-dark-clay hover:text-white focus:ring-dark-clay/50;
-          }
-
-          /* Tertiary button - subtle dark clay */
-          .btn-tertiary {
-              @apply bg-dark-clay/10 text-dark-clay hover:bg-dark-clay/20 focus:ring-dark-clay/30;
-          }
-
-          /* Small button variant */
-          .btn-sm {
-              @apply px-3 py-1.5 text-sm;
-          }
-
-          /* Large button variant */
-          .btn-lg {
-              @apply px-6 py-3 text-base;
-          }
-
-          /* Light button for dark backgrounds */
-          .btn-light {
-              @apply bg-white text-dark-clay hover:bg-gray-100 focus:ring-white/50;
-          }
-      }
-
-      @keyframes slideIn {
-          from {
-              transform: translateY(-100%);
-              opacity: 0;
-          }
-          to {
-              transform: translateY(0);
-              opacity: 1;
-          }
-      }
-
-      @keyframes slideOut {
-          from {
-              transform: translateY(0);
-              opacity: 1;
-          }
-          to {
-              transform: translateY(-100%);
-              opacity: 0;
-          }
-      }
-
-      .toast-enter {
-          animation: slideIn 0.3s ease-out forwards;
-      }
-
-      .toast-exit {
-          animation: slideOut 0.3s ease-in forwards;
-      }
-  </style>
+  <link href="./output.css" rel="stylesheet">
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17664108583"></script>
 <script>
@@ -220,7 +130,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <div class="mx-auto max-w-6xl px-6">
     <div class="flex h-20 items-center justify-between">
       <a href="#home" class="flex items-center gap-2">
-        <img src="ranger_estate_no_background.png" alt="Ranger Estate logo - Premium land release Mount Barker Adelaide Hills" class="w-60"/>
+        <img src="images/ranger_estate_no_background.png" alt="Ranger Estate logo - Premium land release Mount Barker Adelaide Hills" class="w-60"/>
       </a>
       <nav class="hidden items-center gap-8 text-sm text-slate-600 md:flex">
         <a href="#home" class="hover:text-slate-900">Home</a>
@@ -255,7 +165,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 <main id="home">
   <!-- Hero -->
   <section class="relative scroll-mt-16 min-h-[80vh]">
-    <div class="absolute inset-0 -z-10 bg-[url('images/wren_crop.jpeg')] bg-cover"></div>
+    <div class="absolute inset-0 -z-10 bg-[url('images/wren_crop.webp')] bg-cover"></div>
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/20 via-black/15 to-black/10"></div>
     <div class="mx-auto max-w-6xl px-6 pt-24 pb-24 sm:pt-28 sm:pb-28">
       <p class="text-indigo-200 text-sm font-medium uppercase tracking-widest">Exclusive New Land Release</p>
@@ -306,12 +216,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
       </div>
       <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-        <img src="images/steam_ranger_original.jpeg" alt="Historic steam train in Mount Barker Adelaide Hills" class="h-full w-full object-cover"/>
+        <img src="images/steam_ranger_original.webp" alt="Historic steam train in Mount Barker Adelaide Hills" class="h-full w-full object-cover"/>
       </div>
     </div>
     <div class="grid items-center gap-10 sm:grid-cols-2">
       <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-        <img src="images/coffee.jpg" alt="Mount Barker town centre cafe culture lifestyle" class="h-full w-full object-cover"/>
+        <img src="images/coffee.webp" alt="Mount Barker town centre cafe culture lifestyle" class="h-full w-full object-cover"/>
       </div>
       <div>
         <h2 class="text-2xl font-semibold tracking-tight">Morning coffee on the balcony, weekends in the Hills, and
@@ -344,7 +254,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
       </div>
       <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-        <img src="images/wetlands_green.jpeg" alt="Mount Barker wetlands and natural landscape Adelaide Hills" class="h-full w-full object-cover"/>
+        <img src="images/wetlands_green.webp" alt="Mount Barker wetlands and natural landscape Adelaide Hills" class="h-full w-full object-cover"/>
       </div>
     </div>
   </section>
@@ -354,7 +264,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <h3 class="text-xl font-semibold">Location</h3>
     <p class="mt-2 max-w-2xl">5 Railway Place, Mount Barker, SA, 5251</p>
     <div class="flex justify-center mt-4">
-      <img src="images/map.png" alt="Map showing Ranger Estate location at 5 Railway Place Mount Barker SA 5251"
+      <img src="images/map.webp" alt="Map showing Ranger Estate location at 5 Railway Place Mount Barker SA 5251"
            class="w-full h-full rounded-xl border border-slate-200 bg-slate-100"/>
     </div>
 
@@ -363,7 +273,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       <h3 class="text-xl font-semibold">Estate Plan</h3>
       <p class="mt-2 max-w-2xl">View the available lots at Ranger Estate.</p>
       <div class="flex justify-center mt-4">
-        <img src="images/block_map.png" alt="Ranger Estate site plan showing 13 residential lots layout and dimensions"
+        <img src="images/block_map.webp" alt="Ranger Estate site plan showing 13 residential lots layout and dimensions"
              class="w-full h-auto rounded-xl border border-slate-200 bg-slate-100"/>
       </div>
     </div>
@@ -467,8 +377,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <p class="mt-2">Create a home that reflects your style while enhancing the character of Ranger Estate.
             Download the guidelines to get started.</p>
           <div class="mt-5 flex gap-3">
-            <a href="/files/brochure.pdf" download="Ranger-Estate-Brochure.pdf" class="btn btn-primary">Download
-              Brochure</a>
+            <a href="/files/brochure.pdf" download="Ranger-Estate-Brochure.pdf" class="btn btn-primary">
+              Download Brochure
+            </a>
+            <a href="/files/letter_of_offer.pdf" download="Ranger-Estate-Letter-Of-Offer.pdf" class="btn btn-primary">
+              Download Letter of Offer
+            </a>
           </div>
         </div>
         <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
